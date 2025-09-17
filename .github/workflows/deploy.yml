@@ -25,6 +25,9 @@ jobs:
         run: |
           # Since we're using a static HTML site, we just need to ensure the public folder is ready
           echo "Static site ready for deployment"
+          ls -la public/
+          echo "Files in public directory:"
+          find public/ -type f -name "*.html" -o -name "*.css" -o -name "*.js"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
