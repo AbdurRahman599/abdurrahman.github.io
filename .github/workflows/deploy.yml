@@ -15,19 +15,17 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare Static Files
+      - name: Verify Static Files
         run: |
-          # Since we're using a static HTML site, we just need to ensure the public folder is ready
-          echo "Static site ready for deployment"
+          echo "Verifying static files exist..."
           ls -la public/
-          echo "Files in public directory:"
-          find public/ -type f -name "*.html" -o -name "*.css" -o -name "*.js"
+          echo "Static files ready for deployment"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
